@@ -43,6 +43,12 @@ clean:
 
 Game:  $(OBJ) Game.o Main.o $(PLAYERS_OBJ) 
 	$(CXX) $^ -o $@ $(LDFLAGS)
+	
+Play: Game
+	./Game Bernat Dummy Dummy Dummy -s 30 < default.cnf > default.res 2>debug.txt
+
+View:
+	command google-chrome ./Viewer/viewer.html 2>/dev/null &
 
 SecGame: $(OBJ) SecGame.o SecMain.o
 	$(CXX) $^ -o $@ $(LDFLAGS) -lrt
